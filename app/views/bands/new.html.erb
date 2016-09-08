@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Add Band</title>
+  </head>
+  <body>
+    <br>
+    <%= main_index %>
+    <h1>Add a Band</h1>
+    <form action="<%= bands_url %>" method="post">
+      <%= authenticate %>
+        <label for="band[name]">Name</label>
+        <input type="text" name="band[name]"><br><br>
+
+        <label for="band[description]">Description</label><br>
+        <textarea name="band[description]" rows="8" cols="40"></textarea>
+
+        <input type="submit" name="create_band" value="Create">
+    </form>
+  </body>
+</html>

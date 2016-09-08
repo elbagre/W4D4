@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Tracks</title>
+  </head>
+  <body>
+    <br>
+    <%= main_index %>
+    <h1><%= @album.name %></h1>
+
+    <form action="<%= edit_album_url(@album) %>" method="get">
+      <%= authenticate %>
+
+      <input type="submit" name="edit_album" value="Edit">
+    </form>
+
+    <form action="<%= album_url(@album)%>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <%= authenticate %>
+
+      <input type="submit" name="delete_album" value="Remove Album">
+    </form>
+    <form action="<%= new_album_track_url(@album) %>" method="get">
+      <%= authenticate %>
+
+      <input type="submit" name="create_track" value="Add Track">
+    </form>
+    <ul>
+    <h3>Tracks</h3>
+    <% @album.tracks.each do |track| %>
+      <li><a href="<%= track_url(track) %>"><%= track.name %></a></li>
+    <% end %>
+    </ul>
+  </body>
+  <br>
+  <footer>
+    <a href="<%= band_url(@album.band_id)%>"><<--Back</a>
+  </footer>
+</html>

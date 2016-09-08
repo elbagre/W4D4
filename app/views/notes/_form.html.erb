@@ -1,0 +1,10 @@
+<form action="<%= new_track_note_url(@track) %>" method="post">
+  <%= authenticate %>
+
+  <label for="user[email]">e-mail</label>
+  <input type="text" name="user[email]"><br>
+
+  <label for="note[comment]">Comment</label><br>
+  <textarea name="note[comment]" rows="8" cols="40"></textarea><br>
+  <input type="submit" name="create_note" value="Submit">
+</form>

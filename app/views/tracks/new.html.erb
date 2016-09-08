@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>New Track</title>
+  </head>
+  <body>
+    <br>
+    <%= main_index %>
+    <h1>Create Track</h1>
+    <form action="<%= tracks_url %>" method="post">
+      <%= authenticate %>
+
+      <label for="track[name]">Track</label>
+      <input type="text" name="track[name]"><br><br>
+
+      <select name="track[album_id]">
+        <br>
+        <% Album.all.each do |album| %>
+          <option
+            <%= @album.id == album.id ? "selected" : "" %>
+            value="<%= album.id %>">
+            <%= album.name%>
+          </option>
+        <% end %>
+      </select>
+
+      <br><br>
+
+      <label for="track[track_type]">Bonus</label>
+      <input type="radio" name="track[track_type]" value="Bonus">
+
+      <label for="track[track_type]">Regular</label>
+      <input checked="checked" type="radio" name="track[track_type]" value="Regular">
+
+      <br><br>
+
+      <textarea name="track[lyrics]" rows="8" cols="40"></textarea><br>
+
+      <input type="submit" name="create_track" value="Submit">
+
+    </form>
+  </body>
+</html>

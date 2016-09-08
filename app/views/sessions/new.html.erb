@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>MUSAC - Log In</title>
+  </head>
+  <body>
+    <h1>Log In to MUSAC</h1>
+
+    <a href="<%= new_user_url%>">Sign Up!</a><br>
+
+    <p>
+      <strong>Don't want to make an account? <br><br>
+        Too bad! Make one.</strong>
+    </p>
+
+    <form action="<%= session_url %>" method="post">
+      <%= authenticate %>
+
+      <br>
+
+      <label for="user[email]">e-mail</label>
+      <input type="text" name="user[email]">
+
+      <label for="user[password]">password</label>
+      <input type="password" name="user[password]">
+
+      <input type="submit" name="log_in" value="Log In">
+    </form>
+  </body>
+</html>

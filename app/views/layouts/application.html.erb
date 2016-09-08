@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<% if logged_in? %>
+  <%= "You are currently logged in: #{current_user.email}" %>
+  <form action="<%= session_url %>" method="post">
+    <br>
+    <input type="hidden" name="_method" value="delete">
+    <%= authenticate %>
+    <input type="submit" name="log_out" value="Log Out">
+  </form>
+<% end %>
+<head>
+  <title>MusicApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>

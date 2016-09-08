@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%= @band.name %>'s Albums'</title>
+  </head>
+  <body>
+    <br>
+    <%= main_index %>
+    <h1><a href="<%= band_url(@band)%>"><%= @band.name%> Albums</a></h1>
+
+    <form action="<%= new_band_album_url(@band)%>" method="get">
+      <% authenticate %>
+
+      <input type="submit" name="add_album" value="Add Album">
+    </form>
+
+    <ul>
+    <% @band.albums.each do |album| %>
+      <li><a href="<%= album_url(album) %>"><%= album.name %></a></li>
+    <% end %>
+    </ul>
+  </body>
+</html>

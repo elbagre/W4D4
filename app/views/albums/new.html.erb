@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Create Album</title>
+  </head>
+  <body>
+    <br>
+    <%= main_index %>
+    <h1>Add an Album</h1>
+    <form action="<%= albums_url %>" method="post">
+      <%= authenticate %>
+
+      <label for="album[name]">Album Name</label>
+      <input type="text" name="album[name]">
+
+      <br><br>
+
+      <select name="album[band_id]">
+        <% Band.all.each do |band| %>
+          <option
+            <%= @band.id == band.id ? "selected" : "" %>
+            value="<%= band.id %>">
+            <%= band.name%>
+          </option>
+        <% end %>
+      </select>
+
+      <br><br>
+
+      <label for="album[record_type]">Studio</label>
+      <input type="radio" name="album[record_type]" value="Studio">
+
+      <label for="album[record_type]">Live</label>
+      <input type="radio" name="album[record_type]" value="Live">
+
+      <br><br>
+
+      <input type="submit" name="create_album" value="Submit">
+    </form>
+
+  </body>
+</html>

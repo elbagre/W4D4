@@ -1,0 +1,6 @@
+<h3>Notes</h3>
+<% @track.notes.each do |note| %>
+  <%= User.find(note.user_id).email %>
+  <%= note.created_at %>
+  <%= note.comment %>
+<% end %>
